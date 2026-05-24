@@ -38,7 +38,7 @@ function Admin() {
   // 🗑 DELETE
   const deleteBooking = async (id) => {
     try {
-      await fetch(`http://nail-website-2.onrender.com/booking/${id}`, {
+      await fetch(`https://nail-website-2.onrender.com/booking/${id}`, {
         method: "DELETE",
       });
 

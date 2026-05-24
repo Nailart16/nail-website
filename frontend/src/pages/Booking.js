@@ -23,7 +23,7 @@ function Booking() {
   try {
     setLoading(true);
 
-    const res = await fetch("http://nail-website-2.onrender.com/booking", {
+    const res = await fetch("https://nail-website-2.onrender.com/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
