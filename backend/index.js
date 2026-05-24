@@ -17,7 +17,7 @@ const PEXELS_API_KEY = "Al53FvFE1c8Cvh2qASmijq3pqJHjhJHXyPWQRTy6pvbvC9RMupFCwp26
 
 // ================== DB ==================
 
-mongoose.connect("mongodb://127.0.0.1:27017/nailartDB")
+mongoose.connect("mongodb+srv://kyc16308_db_user:nailweb1@cluster0.85dg7mz.mongodb.net/nailartDB?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
