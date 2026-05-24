@@ -22,8 +22,8 @@ const PEXELS_API_KEY = "Al53FvFE1c8Cvh2qASmijq3pqJHjhJHXyPWQRTy6pvbvC9RMupFCwp26
 // ================== DB ==================
 
 mongoose.connect("mongodb+srv://kyc16308_db_user:nailweb1@cluster0.85dg7mz.mongodb.net/nailartDB?retryWrites=true&w=majority")
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+.then(() => console.log("MongoDB Connected"))
+.catch((err) => console.log(err));
 // schema
 const bookingSchema = new mongoose.Schema({
   name: String,
@@ -80,18 +80,23 @@ app.post("/booking", async (req, res) => {
     res.send("Booking Successful");
 
   } catch (error) {
-    res.status(500).send("Server Error");
+  console.log(error);
+  res.status(500).send(error.message);
+}
+});
+
+app.get("/bookings", async (req, res) => {
+  try {
+    const data = await Booking.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 });
 
-app.get("/bookings", async (req,res)=>{
- const data = await Booking.find();
- res.json(data);
-});
-
-app.get("/bookings", (req, res) => {
+/*app.get("/bookings", (req, res) => {
   res.send("Bookings route working");
-});
+});*/
 
 app.delete("/booking/:id", async (req, res) => {
   try {
