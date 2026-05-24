@@ -1,0 +1,28 @@
+# Query: localhost
+# ContextLines: 1
+
+6 results - 4 files
+
+frontend\README.md:
+  11  Runs the app in the development mode.\
+  12: Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  13  
+
+frontend\src\pages\Admin.js:
+  19      try {
+  20:       const res = await fetch("https://nail-website-2.onrender.com/booking");
+  21  
+
+  40      try {
+  41:       await fetch(`https://nail-website-2.onrender.com/booking/${id}`, {
+  42          method: "DELETE",
+
+frontend\src\pages\AIGenerator.js:
+  48  
+  49:       const res = await fetch("https://nail-website-2.onrender.com/generate-design", {
+  50          method: "POST",
+
+frontend\src\pages\Booking.js:
+  25  
+  26:     const res = await fetch("https://nail-website-2.onrender.com/booking", {
+  27        method: "POST",

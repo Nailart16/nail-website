@@ -17,7 +17,7 @@ function Admin() {
   // 📦 FETCH DATA SAFELY
   const fetchBookings = async () => {
     try {
-      const res = await fetch("http://localhost:5000/bookings");
+      const res = await fetch("https://nail-website-2.onrender.com/bookings");
 
       if (!res.ok) {
         throw new Error("Server error");
@@ -38,7 +38,7 @@ function Admin() {
   // 🗑 DELETE
   const deleteBooking = async (id) => {
     try {
-      await fetch(`http://localhost:5000/booking/${id}`, {
+      await fetch(`http://nail-website-2.onrender.com/booking/${id}`, {
         method: "DELETE",
       });
 
