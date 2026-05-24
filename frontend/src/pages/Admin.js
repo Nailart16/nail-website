@@ -38,7 +38,7 @@ function Admin() {
   // 🗑 DELETE
   const deleteBooking = async (id) => {
     try {
-      await fetch(`http://localhost:5000/bookings/${id}`, {
+      await fetch(`http://localhost:5000/booking/${id}`, {
         method: "DELETE",
       });
 

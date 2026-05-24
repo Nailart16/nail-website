@@ -57,77 +57,139 @@ body{
 /* ===============================
    PREMIUM NAVBAR
 ================================= */
-.premium-nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(8px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 40px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+/* ===== PREMIUM NAVBAR ===== */
+
+.premium-nav {
+  width: 100%;
+  background: #ffffff;
+  padding: 14px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
-.nav-logo{
-  font-size:28px;
-  font-weight:700;
-  color:#222;
+/* ===== LOGO SECTION ===== */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.nav-logo span{
-  color:#d4af37;
+.logo-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4af37;
 }
 
-.nav-links{
-  display:flex;
-  gap:28px;
+.nav-logo span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 1px;
+  font-family: "Poppins", sans-serif;
 }
 
-.nav-links a{
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-  position:relative;
-  transition:0.3s;
+/* ===== NAV LINKS ===== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
 }
 
-.nav-links a:hover{
-  color:#d4af37;
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
 }
 
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0%;
-  height:2px;
-  background:#d4af37;
-  transition:0.3s;
+.nav-links a:hover {
+  color: #d4af37;
 }
 
-.nav-links a:hover::after{
-  width:100%;
+/* Hover underline effect */
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s ease;
 }
 
-.nav-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:26px;
-  font-weight:700;
+.nav-links a:hover::after {
+  width: 100%;
 }
 
-.logo-img{
-  width:45px;
-  height:45px;
-  object-fit:cover;
-  border-radius:50%;
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+  .premium-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+  }
+
+  .nav-logo {
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .logo-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-logo span {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 1.15rem;
+  }
 }
 
+/* ===== EXTRA SMALL MOBILE ===== */
 
+@media (max-width: 480px) {
+
+  .nav-logo span {
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
 /* ===============================
    HERO HOME
 ================================= */
@@ -183,6 +245,7 @@ body{
   transform:scale(1.05);
   background:#b99222;
 }
+
 
 /* ===============================
    ABOUT

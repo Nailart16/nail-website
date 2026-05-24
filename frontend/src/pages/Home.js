@@ -29,7 +29,7 @@ function Home() {
 
         <p>
           Whether you're looking for durable extensions or a simple refresh,
-          we value your time and trust.
+          we value your time and trust♥️
         </p>
       </section>
 
