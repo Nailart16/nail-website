@@ -7,7 +7,10 @@ const app = express();
 
 // middleware
 app.use(cors({
-  origin: "https://nail-website-topaz.vercel.app",
+  origin: [
+    "https://nail-website-topaz.vercel.app",
+    "https://nail-website-2byjf5i2b-nail-projects.vercel.app"
+  ],
   methods: ["GET", "POST", "DELETE"],
   credentials: true
 }));
