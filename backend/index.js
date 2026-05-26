@@ -1,4 +1,5 @@
 const express = require("express");
+console.log("SERVER STARTING...");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const axios = require("axios");
