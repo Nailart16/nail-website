@@ -73,8 +73,9 @@ Time: ${time}`;
     setTime("");
 
   } catch (error) {
-    alert("Booking Error");
-  }
+  console.log(error);
+  alert(error.message);
+}
 
   setLoading(false);
 };
