@@ -25,14 +25,14 @@ const PEXELS_API_KEY = "Al53FvFE1c8Cvh2qASmijq3pqJHjhJHXyPWQRTy6pvbvC9RMupFCwp26
 // ================== DB ==================
 
 mongoose.connect(
-  "mongodb+srv://kyc16308_db_user:nailweb1@cluster0.85dg7mz.mongodb.net/nailartDB?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
+  "mongodb+srv://kyc16308_db_user:nailweb1@cluster0.85dg7mz.mongodb.net/nailartDB?retryWrites=true&w=majority&appName=Cluster0",
 )
-.then(() => console.log("MongoDB Connected"))
-.catch((err) => console.log(err));
+.then(() => {
+  console.log("MongoDB Connected");
+})
+.catch((err) => {
+  console.log("MongoDB Error:", err);
+});
 // schema
 const bookingSchema = new mongoose.Schema({
   name: String,
