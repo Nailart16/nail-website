@@ -571,7 +571,7 @@ body{
 .admin-page{
   padding:40px 7%;
   min-height:100vh;
-  background:#111;
+  background:#f3e8ff;
   color:white;
 }
 
@@ -581,7 +581,7 @@ body{
 }
 
 .booking-card{
-  background:#1e1e1e;
+  background:#f3e8ff;
   padding:20px;
   border-radius:15px;
   margin-bottom:20px;
