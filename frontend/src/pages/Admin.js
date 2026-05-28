@@ -2,89 +2,81 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Admin() {
+
   const [bookings, setBookings] = useState([]);
+
   const navigate = useNavigate();
 
-  // 🔒 LOGIN CHECK (IMPORTANT)
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("adminLoggedIn");
 
-    if (!isLoggedIn) {
+    if (localStorage.getItem("admin") !== "true") {
       navigate("/admin-login");
     }
+
+    fetchBookings();
+
   }, []);
 
-  // 📦 FETCH DATA SAFELY
   const fetchBookings = async () => {
-    try {
-      const res = await fetch("http://nail-website-2.onrender.com/bookings");
 
-      if(localStorage.getItem("admin") !== "true"){
-   navigate("/admin-login");
-}
+    try {
+
+      const res = await fetch(
+        "https://nail-website-2.onrender.com/bookings"
+      );
 
       const data = await res.json();
-      setBookings(data || []);
+
+      setBookings(data);
+
     } catch (error) {
-      console.log("Fetch error:", error);
-      setBookings([]);
+
+      console.log(error);
+
     }
   };
 
-  useEffect(() => {
-    fetchBookings();
-  }, []);
-
-  // 🗑 DELETE
   const deleteBooking = async (id) => {
-    try {
-      await fetch(`http://nail-website-2.onrender.com/booking/${id}`, {
-        method: "DELETE",
-      });
 
-      fetchBookings();
-    } catch (err) {
-      console.log(err);
-    }
+    await fetch(
+      `https://nail-website-2.onrender.com/booking/${id}`,
+      {
+        method: "DELETE"
+      }
+    );
+
+    fetchBookings();
   };
 
   return (
     <div className="admin-page">
-      <h1>Admin Panel</h1>
 
-      {bookings.length === 0 ? (
-        <p>No bookings found</p>
-      ) : (
-        <table border="1" cellPadding="10">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Service</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
+      <h1>Admin Panel 💅</h1>
 
-          <tbody>
-            {bookings.map((item) => (
-              <tr key={item._id}>
-                <td>{item.name}</td>
-                <td>{item.phone}</td>
-                <td>{item.service}</td>
-                <td>{item.date}</td>
-                <td>{item.time}</td>
-                <td>
-                  <button onClick={() => deleteBooking(item._id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      {bookings.map((item) => (
+
+        <div key={item._id} className="booking-card">
+
+          <h3>{item.name}</h3>
+
+          <p>{item.phone}</p>
+
+          <p>{item.service}</p>
+
+          <p>{item.date}</p>
+
+          <p>{item.time}</p>
+
+          <button
+            onClick={() => deleteBooking(item._id)}
+          >
+            Delete
+          </button>
+
+        </div>
+
+      ))}
+
     </div>
   );
 }
