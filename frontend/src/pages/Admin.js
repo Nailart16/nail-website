@@ -17,11 +17,11 @@ function Admin() {
   // 📦 FETCH DATA SAFELY
   const fetchBookings = async () => {
     try {
-      const res = await fetch("https://nail-website-2.onrender.com/bookings");
+      const res = await fetch("http://nail-website-2.onrender.com/bookings");
 
-      if (!res.ok) {
-        throw new Error("Server error");
-      }
+      if(localStorage.getItem("admin") !== "true"){
+   navigate("/admin-login");
+}
 
       const data = await res.json();
       setBookings(data || []);
@@ -38,7 +38,7 @@ function Admin() {
   // 🗑 DELETE
   const deleteBooking = async (id) => {
     try {
-      await fetch(`https://nail-website-2.onrender.com/booking/${id}`, {
+      await fetch(`http://nail-website-2.onrender.com/booking/${id}`, {
         method: "DELETE",
       });
 

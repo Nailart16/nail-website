@@ -10,7 +10,7 @@ function AdminLogin() {
 
   const login = () => {
     if (user === "nails" && pass === "1619") {
-      localStorage.setItem("adminLoggedIn", "true");
+      localStorage.setItem("admin", "true");
       navigate("/admin");
     } else {
       alert("Wrong Login");
