@@ -9,13 +9,18 @@ function Admin() {
 
   useEffect(() => {
 
-    if (localStorage.getItem("admin") !== "true") {
-      navigate("/admin-login");
-    }
+  const isAdmin = localStorage.getItem("admin");
 
-    fetchBookings();
+  if (isAdmin !== "true") {
 
-  }, []);
+    navigate("/admin-login");
+
+    return;
+  }
+
+  fetchBookings();
+
+}, []);
 
   const fetchBookings = async () => {
 
